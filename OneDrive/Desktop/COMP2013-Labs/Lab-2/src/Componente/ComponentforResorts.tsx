@@ -5,7 +5,7 @@ interface resortCards {
     data: ResortListing[];
 }
 
-export default function resordContainer ({data}: resortCards){
+export default function resortContainer ({data}: resortCards){
     return (
         <div className= "resortCards">
         {data.map((list) => (
