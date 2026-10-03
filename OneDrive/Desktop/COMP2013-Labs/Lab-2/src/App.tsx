@@ -5,7 +5,7 @@ import listings from './Data/data';
 function App() {
   return (
     <>
-      <h1>Resorts World:</h1>
+      <h1>Resorts Lite:</h1>
       <ResortContainer data={listings}/>
     </>
 

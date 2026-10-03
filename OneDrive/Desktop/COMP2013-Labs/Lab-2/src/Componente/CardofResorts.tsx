@@ -9,13 +9,24 @@ export default function CardofResorts ({
  rating,
  price   
 }: ResortListing) {
+ 
+    let ratingPoints;
+
+    if (rating > 4.0)
+    {
+        ratingPoints = "good-rating";
+    } else 
+    {
+        ratingPoints = "bad-rating";
+    }
+
     return (
-        <div className = "cardforRessort">
-            <img src = {pic} alt = "pictures of resorts" width="250px"/>
-            <h3>{location}</h3>
-            <p>{country}</p>
-            <p>★ {rating}</p>
-            <p>${price}</p>
+        <div className = "cardforResort">
+            <img src = {pic} width="250px"/>
+            <h3>{country}</h3>
+            <p>{location}</p>
+            <p className={ratingPoints}>★ {rating}</p>
+            <p>${price}/night</p>
 
         </div>
     );
