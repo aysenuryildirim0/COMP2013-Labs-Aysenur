@@ -3,6 +3,42 @@
 //Create an interface Listing that will represent an object
 //from the listings array below to resolve the type error.
 
+//Source for first task: https://www.w3schools.com/typescript/typescript_aliases_and_interfaces.php
+
+interface propertySummary
+{
+  propertyType: string;
+  buildingType: string;
+  storeys: string;
+  title: string;
+  builtIn: string;
+  taxes: string;
+  parking: string;
+};
+
+interface buildingSummary
+{
+  bedrooms: string;
+  bathrooms: string;
+  buildingFeatures: string[];
+  cooling: string;
+  heating: string;
+  sewer: string;
+  water: string; 
+  size: string;
+};
+
+interface Listing
+{
+  id: string;
+  price: string;
+  postalCode: string;
+  MLSnumber: string;
+  description: string;
+  address: string;
+  photo: string;
+};
+
 const listings: Listing[] = [
   {
     id: "10100",
@@ -482,6 +518,8 @@ const listings: Listing[] = [
  */
 //WRITE YOUR CODE BELOW
 
+const listing0 = listings[0];
+
 /**
  * Task-3:
  * Create an object named listing0Updated of type Listing
@@ -494,6 +532,14 @@ const listings: Listing[] = [
  * Make sure to add them as OPTIONAL properties
  */
 //WRITE YOUR CODE BELOW
+
+const listing0Updated = 
+{
+  ...listing0, //Source: https://www.convex.dev/typescript/advanced/advanced-concepts/typescript-spread-operator
+  isSold = false;
+  currentOwner: "Jane Doe";
+
+};
 
 /**
  * NOTE: THIS TASK IS TRICKY!
@@ -518,6 +564,10 @@ const listings: Listing[] = [
  * according to their built year
  */
 //WRITE YOUR CODE BELOW
+//Sources: https://www.convex.dev/typescript/advanced/advanced-concepts/typescript-spread-operator
+//https://www.geeksforgeeks.org/typescript/typescript-sorting-array/
+
+const listingAscendingly = ...Listing.sort((a, b) => a.propertySummary.builtIn - b.propertySummary.builtIn);
 
 /**
  * Task-6:
@@ -527,3 +577,8 @@ const listings: Listing[] = [
  * This array should result in two listings only
  */
 //WRITE YOUR CODE BELOW
+
+//Source: https://www.geeksforgeeks.org/typescript/typescript-array-filter-method/
+
+const townhouseListings = listings.filter ((listing) => 
+listing.propertySummary.buildingType === "Townhouse");
